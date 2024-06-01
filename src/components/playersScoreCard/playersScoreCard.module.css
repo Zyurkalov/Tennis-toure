@@ -1,0 +1,79 @@
+.card {
+    margin: 8px 16px;
+    padding: 6px 12px 2px;
+    background-color: var(--color-default);
+    border-radius: 6px;
+}
+.card:last-child {
+    margin-bottom: 16px;
+}
+.card:not(:last-child) {
+    border-bottom: 1px solid rgba(146, 146, 146, 0.2);
+}
+.card:nth-child(odd) {
+    background-color: var(--color-white-95)
+}
+
+.card_header {
+    padding-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(146, 146, 146, 0.2);
+}
+.card_title {
+    margin: 0;
+    display: inline-block;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+
+    color: rgba(146, 146, 146, 1);
+}
+.card_info li {
+    margin-bottom: -2px; /* Adjust the margin to create space between <li> elements */
+  }
+.card_time {
+    font-size: 14px;
+    font-weight: 300; 
+    text-align: end;
+}
+.card_status {
+    font-size: 14px;
+    font-weight: 400;
+}
+.card_status__completed {
+    /* color: var(--color-text-green);   */
+    color: green;  
+}
+.card_status__continues {
+    color: var(--color-yellow);
+}
+.card_scoreList {
+    display: flex;
+}
+.card_score:not(:last-child) {
+    letter-spacing: 16px;
+}
+.card_score__winner {
+    font-weight: 500; 
+}
+.card_playerRow {
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card_playerRow:not(:last-child) {
+    border-bottom: 1px solid rgba(146, 146, 146, 0.2);
+}
+.playerRow_p {
+    font-size: 15px;
+}
+.playerRow_p__winner {
+    font-weight: 500;
+}
+.playerRow_p__defeat {
+    font-weight: 300;
+}

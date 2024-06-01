@@ -1,0 +1,11 @@
+
+.page {
+    margin:auto;
+    width: 100%;
+    min-width: 320px;
+
+    overflow: hidden;
+}
+.drop-shadow {
+    box-shadow: 0px 7px 11px 0px #0f2b464a
+}
