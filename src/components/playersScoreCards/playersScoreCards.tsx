@@ -1,28 +1,31 @@
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { FC } from "react"
 // import DoneIcon from '@mui/icons-material/Done';
 // import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import {HARD_DATA, typeCart} from "./constants"
-import styles from './playersScoreCard.module.css'
+import {typeCart, typeObjCart} from "./constants"
+import styles from './playersScoreCards.module.css'
 
-const PlayersScoreCard = () => {
+const PlayersScoreCard: FC<{ objTournament?: typeObjCart }> = ({objTournament}) => {
 
-    const matchStatus = (obj: typeCart) => {
-    return obj.status === 'completed' ? {status: "Завершен", style: styles.card_status__completed} : {status: "Идет", style: styles.card_status__continues} 
+  const matchStatus = (obj: typeCart) => {
+    return obj.status === 'completed' 
+      ? {status: "Завершен", style: styles.card_status__completed} 
+      : {status: "Идет", style: styles.card_status__continues} 
   }
   const determineMatchResult = (obj: typeCart) => {
     const playerOneScore = obj.playerOne.score.reduce((total, num) => total + num, 0)
     const playerTwoScore = obj.playerTwo.score.reduce((total, num) => total + num, 0)
 
-    const isPlayerOneWins = playerOneScore > playerTwoScore;
-    const isPlayerTwoWins = playerOneScore < playerTwoScore;
+    // const isPlayerOneWins = playerOneScore > playerTwoScore;
+    // const isPlayerTwoWins = playerOneScore < playerTwoScore;
 
     if (playerOneScore === null || playerTwoScore === null) {
       console.error(`что то не так с объектом ${obj}`)
       return
     } 
-    if(isPlayerOneWins) {
+    if(playerOneScore > playerTwoScore) {
       return {winner: obj.playerOne , defeat: obj.playerTwo, isGameDraw: false}
-    } else if(isPlayerTwoWins) {
+    } else if(playerOneScore < playerTwoScore) {
       return {winner: obj.playerTwo , defeat: obj.playerOne, isGameDraw: false}
     } else {
       return {winner: obj.playerOne , defeat: obj.playerTwo, isGameDraw: true}
@@ -31,8 +34,8 @@ const PlayersScoreCard = () => {
 
     return (
       <ul>
-        {
-            HARD_DATA.TyumenCup.map((element, index) => (
+        { objTournament?.TyumenCup !== undefined 
+            ? objTournament.TyumenCup.map((element, index) => (
                 <li key={index} className={styles.card}>
                   <div className={styles.card_header}>
                     <h2 className={styles.card_title}>{element.type}</h2>
@@ -68,6 +71,7 @@ const PlayersScoreCard = () => {
                   </ul>
                 </li>      
             ))
+            : null
         }
         
       </ul>

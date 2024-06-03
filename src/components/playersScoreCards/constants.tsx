@@ -10,7 +10,7 @@ export type typeCart = {
       player: string[];
       score: number[];
   }}
-  export type typeObjCart = { [key: string]: typeCart[]}
+  export type typeObjCart = { [key: string]: typeCart[]};
 
 export const HARD_DATA: typeObjCart = {
   TyumenCup: [

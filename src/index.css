@@ -1,23 +1,33 @@
 @font-face {
   font-family: 'Jost';
-  src: url('./fonts/jost_wght800-webfont.woff2') format('woff2'), 
-       url("./fonts/jost_wght800-webfont.woff") format('woff');
+  src: url('src/fonts/jost_wght800-webfont.woff2') format('woff2'), 
+       url("src/fonts/jost_wght800-webfont.woff") format('woff');
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
-  src: url("./fonts/roboto-regular-webfont.woff2") format('woff2'),
-       url("./fonts/roboto-regular-webfont.woff") format('woff');
+  src: url("src/fonts/roboto-regular-webfont.woff2") format('woff2'),
+       url("src/fonts/roboto-regular-webfont.woff") format('woff');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
-  src: url('./fonts/roboto-light-webfont.woff2') format('woff2'), 
-       url('./fonts/roboto-light-webfont.woff') format('woff');
+  src: url('src/fonts/roboto-light-webfont.woff2') format('woff2'), 
+       url('src/fonts/roboto-light-webfont.woff') format('woff');
   font-weight: 300;
   font-style: normal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body, p, h1, h2, span {
+  margin: 0;
 }
 
 :root {
@@ -43,12 +53,4 @@
 
   background-color: var(--color-green);
 }
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 
-body, p, h1, h2, span {
-  margin: 0;
-}

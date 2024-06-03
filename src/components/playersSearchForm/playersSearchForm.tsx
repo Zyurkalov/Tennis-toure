@@ -1,14 +1,15 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, ChangeEvent, SyntheticEvent } from "react";
 import styles from './playersSearchForm.module.css'
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { HARD_DATA } from "../playersScoreCard/constants";
+import { HARD_DATA } from "../playersScoreCards/constants";
 
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 
 
 const PlayersSearchForm: FC = () => {
+
   const setTournaments = ['Кубок Тюмени', 'Новые Имена', 'Australian Open']
   const [inputValue, setInputValue] = useState('');
   const cards = HARD_DATA.TyumenCup
@@ -30,9 +31,13 @@ const PlayersSearchForm: FC = () => {
     return () => clearTimeout(delaySearch);
   }, [inputValue]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
+
+  const handleChangeMutch = (event: SyntheticEvent<Element, Event>) => {
+    console.log((event.target as HTMLInputElement).textContent);
+  }
 
   return (
     <div className={`${styles.inputField} drop-shadow`}>
@@ -40,6 +45,7 @@ const PlayersSearchForm: FC = () => {
         disablePortal
         id="combo-box-demo"
         options={setTournaments}
+        onChange={handleChangeMutch}
         // sx={{ width: 300 }}
         // defaultValue="Small"
         // size="small"
