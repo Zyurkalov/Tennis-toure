@@ -5,8 +5,7 @@ import TournamentBrief from '../../components/tournamentBrief/tournamentBrief'
 import PlayersSearchForm from '../../components/playersSearchForm/playersSearchForm'
 import PlayersScoreCards from '../../components/playersScoreCards/playersScoreCards'
 
-import { useUnit } from 'effector-react';
-import { $resultTournaments, addTournament } from './model/init'
+import { HARD_DATA } from '../../components/playersScoreCards/constants'
 
 // import { typeObjCart } from '../../components/playersScoreCards/constants';
 import './Main.css'
@@ -18,16 +17,16 @@ const headerObj = {
 }
 
 function Main() {
-  const tournaments = useUnit($resultTournaments)
+  // const tournaments = useUnit($resultTournaments)
 
   return (
     <>
       <div className='page'>
         <Header />
-        <button onClick={() => {addTournament('TyumenCup')}}>+</button>
+        {/* <button onClick={() => {addTournament('TyumenCup')}}>+</button> */}
         <TournamentBrief textObject={headerObj}></TournamentBrief>
         <PlayersSearchForm />
-        <PlayersScoreCards objTournament={tournaments} />
+        <PlayersScoreCards objTournament={HARD_DATA} />
       </div>
     </>
   )

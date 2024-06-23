@@ -2,7 +2,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { FC } from "react"
 // import DoneIcon from '@mui/icons-material/Done';
 // import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import {typeCart, typeObjCart} from "./constants"
+import {typeCart, typeObjCart } from "./constants"
 import styles from './playersScoreCards.module.css'
 
 const PlayersScoreCard: FC<{ objTournament?: typeObjCart }> = ({objTournament}) => {
