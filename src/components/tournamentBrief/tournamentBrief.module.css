@@ -15,16 +15,17 @@
 }
 .news_h {
     margin: 0;
+    width: 100px;
 
-    font-family: 'Jost', sans-serif;
+    font-family: 'Unbounded', sans-serif;
     font-optical-sizing: auto;
     font-size: 50px;
-    font-weight: 800;
+    font-weight: 600;
 
     font-style: normal;
-    text-transform: uppercase;
+
     line-height: 100%;
-    color: var(--color-yellow);
+    color: var(--color-limon);
 }
 .news_p {
     margin: 0;

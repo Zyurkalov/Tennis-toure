@@ -1,29 +1,38 @@
-// import { useState } from 'react'
+import { useEffect} from 'react'
+import { useAppDispatch, useAppSelector } from '../../utilits/hooks';
 
 import Header from '../../components/header/header'
 import TournamentBrief from '../../components/tournamentBrief/tournamentBrief'
 import PlayersSearchForm from '../../components/playersSearchForm/playersSearchForm'
 import PlayersScoreCards from '../../components/playersScoreCards/playersScoreCards'
 
+import { addTodo } from '../../services/actions';
 import { HARD_DATA } from '../../components/playersScoreCards/constants'
 
 // import { typeObjCart } from '../../components/playersScoreCards/constants';
-import './Main.css'
+// import { DeviceUnknown } from '@mui/icons-material';
+// import './Main.css'
+import "/src/page/Main/Main.css";
 
 const headerObj = {
-  header: 'КУБОК ТЮМЕНИ', 
+  header: "Кубок Тюмени", 
   paragraph: 'Здесь содержится краткий анонс и время проведения 20:00',
   image: 'Здесь будет src файл (фоновая картинка)'
 }
 
 function Main() {
-  // const tournaments = useUnit($resultTournaments)
+  const dispatch = useAppDispatch();
+  const store = useAppSelector(state => state?.todos);
+
+useEffect(() => {
+  console.log(store.todo); 
+}, [store.todo]);
 
   return (
     <>
       <div className='page'>
         <Header />
-        {/* <button onClick={() => {addTournament('TyumenCup')}}>+</button> */}
+        <button onClick={() => {dispatch(addTodo('покормить кота'))}}>+</button>
         <TournamentBrief textObject={headerObj}></TournamentBrief>
         <PlayersSearchForm />
         <PlayersScoreCards objTournament={HARD_DATA} />

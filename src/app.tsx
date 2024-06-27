@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Main from './page/Main/Main'
-import './index.css'
+import {Provider} from "react-redux"
+import './app.css'
+import { store } from './services'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Main />
+    <Provider store={store}>
+      <Main />
+    </Provider>
   </React.StrictMode>,
 )
