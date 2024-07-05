@@ -5,6 +5,7 @@ interface Todo {
 
 const initialState = {
     todo: [] as Todo[],
+    menu: false
 }
 
 export const todoReducer = (state = initialState, action: any) => {
@@ -25,6 +26,18 @@ export const todoReducer = (state = initialState, action: any) => {
                 todo: [...state.todo].filter((elem) => elem?.id !== action.id)
             }
         }
+        default:
+            return state
+    }
+}
+
+export const menuReducer = (state = initialState, action: {type: 'TOGGLE_MENU'}) => {
+    switch(action.type) {
+        case 'TOGGLE_MENU': 
+            return {
+                ...state,
+                menu: !state.menu
+            }
         default:
             return state
     }
