@@ -29,13 +29,6 @@ export const HARD_DATA: typeObjCart = {
         playerTwo: {player:['И. Иванов'], score: [3,3,6,6,6]}
       },
       {
-        type: 'Мужская, парная', 
-        status: "completed",
-        time: '14:20',
-        playerOne: {player: ['В. Пупкин', 'И. Иванов'], score: [6,1,4,4,4]},
-        playerTwo: {player:['A. Петров', 'С. Сидоров'], score: [5,6,6,6,6]},
-      },
-      {
         type: 'Женская, одиночная', 
         status: "completed",
         time: '11:50',
@@ -48,6 +41,34 @@ export const HARD_DATA: typeObjCart = {
         time: '11:50',
         playerOne: {player: ['М. Чижикова'], score: [6,6,6]},
         playerTwo: {player:['О. Синичкина'], score: [6,6,6]},
-      }
+      },
+      {
+        type: 'Женская, одиночная', 
+        status: "completed",
+        time: '11:50',
+        playerOne: {player: ['М. Воронцова'], score: [6,7,6]},
+        playerTwo: {player:['О. Лебедева'], score: [6,6,6]},
+      },
+      {
+        type: 'Мужская, одиночная', 
+        status: "completed",
+        time: '10:50',
+        playerOne: {player: ['В. Пупкин'], score: [6,1,6,2]},
+        playerTwo: {player:['И. Иванов'], score: [1,6,1,6]}
+      },
+      {
+        type: 'Мужская, парная', 
+        status: "continues",
+        time: '14:20',
+        playerOne: {player: ['В. Пупкин', 'И. Иванов'], score: [6,1,4,4,4]},
+        playerTwo: {player:['A. Петров', 'С. Сидоров'], score: [5,6,6,6,6]},
+      },
+      {
+        type: 'Женская, парная', 
+        status: "completed",
+        time: '14:20',
+        playerOne: {player: ['М. Воронцова', 'О. Лебедева'], score: [6,1,4,4,4]},
+        playerTwo: {player:['М. Чижикова', 'О. Синичкина'], score: [5,6,6,6,6]},
+      },
     ]
 }

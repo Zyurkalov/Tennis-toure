@@ -1,11 +1,11 @@
 .card {
-    margin: 8px 16px;
+    box-sizing: content-box;
+    min-width: 290px;
+    max-width: 320px;
+    // margin: 8px 16px;
     padding: 6px 12px 2px;
     background-color: var(--color-default);
     border-radius: 6px;
-}
-.card:last-child {
-    margin-bottom: 16px;
 }
 .card:not(:last-child) {
     border-bottom: 1px solid rgba(146, 146, 146, 0.2);
@@ -76,4 +76,20 @@
 }
 .playerRow_p__defeat {
     font-weight: 300;
+}
+
+.gridContainer {
+    margin-bottom: 26px;
+    display: grid;
+    gap: 10px;
+
+    &_mobile {
+        grid-template-columns: repeat(1, 325px);
+    }
+    &_tablet {
+        grid-template-columns: repeat(2, 325px);
+    }
+    &_desktop {
+        grid-template-columns: repeat(3, 325px);
+    }
 }

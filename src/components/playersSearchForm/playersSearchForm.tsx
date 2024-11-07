@@ -6,9 +6,10 @@ import { HARD_DATA } from "../playersScoreCards/constants";
 
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
+import { ScreenType } from "../../utilits/hooks/useWindowSize";
+import clsx from "clsx";
 
-
-const PlayersSearchForm: FC = () => {
+const PlayersSearchForm: FC<{sizeWindows: string}> = ({sizeWindows}) => {
 
   const setTournaments = ['Кубок Тюмени', 'Новые Имена', 'Australian Open']
   const [inputValue, setInputValue] = useState('');
@@ -31,6 +32,12 @@ const PlayersSearchForm: FC = () => {
     return () => clearTimeout(delaySearch);
   }, [inputValue]);
 
+  const handleStyle = () => {
+    return sizeWindows === ScreenType.mobile ? styles.inputField__screen_mobile
+      : sizeWindows === ScreenType.tablet ? styles.inputField__screen_tablet
+      : styles.inputField__screen_desktop
+  }
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
@@ -40,13 +47,15 @@ const PlayersSearchForm: FC = () => {
   }
 
   return (
-    <div className={`${styles.inputField} ${styles.inputField__column} drop-shadow`}>
+    <div className={clsx(styles.inputField, handleStyle(), "drop-shadow")}>
       <Autocomplete
         disablePortal
         id="combo-box-demo"
         options={setTournaments}
         onChange={handleChangeMutch}
         renderInput={(params) => <TextField {...params} label="Турнир" />}
+        // sx={{minWidth: 300}}
+ 
       />
       <TextField
         id="demo-helper-text-aligned-no-helper"
@@ -54,6 +63,7 @@ const PlayersSearchForm: FC = () => {
         maxRows={1}
         onChange={handleChange}
         value={inputValue}
+        // sx={{width: 30000}}
         // size="small"
         InputProps={{
           startAdornment: (

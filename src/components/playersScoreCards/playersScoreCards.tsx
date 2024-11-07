@@ -3,9 +3,11 @@ import { FC } from "react"
 // import DoneIcon from '@mui/icons-material/Done';
 // import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import {typeCart, typeObjCart } from "./constants"
-import styles from './playersScoreCards.module.css'
+import styles from './playersScoreCards.module.scss'
+import { ScreenType } from '../../utilits/hooks/useWindowSize';
+import clsx from 'clsx';
 
-const PlayersScoreCard: FC<{ objTournament?: typeObjCart }> = ({objTournament}) => {
+const PlayersScoreCard: FC<{ objTournament?: typeObjCart, sizeWindows: string }> = ({objTournament, sizeWindows}) => {
 
   const matchStatus = (obj: typeCart) => {
     return obj.status === 'completed' 
@@ -32,8 +34,14 @@ const PlayersScoreCard: FC<{ objTournament?: typeObjCart }> = ({objTournament}) 
     }
   }
 
+  const handleStyle = () => {
+    return sizeWindows === ScreenType.mobile ? styles.gridContainer_mobile
+      : sizeWindows === ScreenType.tablet ? styles.gridContainer_tablet
+      : styles.gridContainer_desktop
+  }
+
     return (
-      <ul>
+      <ul className={clsx(styles.gridContainer, handleStyle()) }>
         { objTournament?.TyumenCup !== undefined 
             ? objTournament.TyumenCup.map((element, index) => (
                 <li key={index} className={styles.card}>

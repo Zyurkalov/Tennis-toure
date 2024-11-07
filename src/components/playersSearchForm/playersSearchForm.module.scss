@@ -1,4 +1,6 @@
 .inputField {
+    max-width: 900px;
+    box-sizing: border-box;
     padding: var(--margin-outsideBlock);
     margin-bottom: var(--margin-outsideBlock);
     display: flex;
@@ -8,7 +10,17 @@
     background-color: var(--color-default);
     border-radius: 12px;
     
-    &__column {
-        flex-direction: column;
+    &__screen {
+        &_mobile {
+            flex-direction: column;
+            min-width: 100%;
+        }
+        &_tablet {
+            min-width: 768px;
+        }
+        &_desktop {
+            min-width: 1024px;
+        }
+        
     }
 }

@@ -12,7 +12,8 @@ import { HARD_DATA } from '../../components/playersScoreCards/constants'
 // import { typeObjCart } from '../../components/playersScoreCards/constants';
 // import { DeviceUnknown } from '@mui/icons-material';
 // import './Main.css'
-import "/src/page/Main/Main.css";
+import "/src/page/Main/Main.scss";
+import { useWindowsSize } from '../../utilits/hooks/useWindowSize';
 
 const headerObj = {
   header: "Кубок Тюмени", 
@@ -21,12 +22,13 @@ const headerObj = {
 }
 
 function Main() {
-  // const dispatch = useAppDispatch();
-  // const store = useAppSelector(state => state?.todos);
+  const sizeWindows = useWindowsSize()
+  const dispatch = useAppDispatch();
+  const store = useAppSelector(state => state?.todos);
 
-// useEffect(() => {
-//   console.log(store.todo); 
-// }, [store.todo]);
+useEffect(() => {
+  console.log(store.todo); 
+}, [store.todo]);
 
   return (
     <>
@@ -34,8 +36,8 @@ function Main() {
         <Header />
         {/* <button onClick={() => {dispatch(addTodo('покормить кота'))}}>+</button> */}
         <TournamentBrief textObject={headerObj}></TournamentBrief>
-        <PlayersSearchForm />
-        <PlayersScoreCards objTournament={HARD_DATA} />
+        <PlayersSearchForm sizeWindows={sizeWindows}/>
+        <PlayersScoreCards objTournament={HARD_DATA} sizeWindows={sizeWindows}/>
       </div>
     </>
   )
