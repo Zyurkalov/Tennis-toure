@@ -1,5 +1,5 @@
 import { FC, useState, useEffect, ChangeEvent, SyntheticEvent } from "react";
-import styles from './playersSearchForm.module.css'
+import styles from './playersSearchForm.module.scss'
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { HARD_DATA } from "../playersScoreCards/constants";
@@ -40,15 +40,12 @@ const PlayersSearchForm: FC = () => {
   }
 
   return (
-    <div className={`${styles.inputField} drop-shadow`}>
+    <div className={`${styles.inputField} ${styles.inputField__column} drop-shadow`}>
       <Autocomplete
         disablePortal
         id="combo-box-demo"
         options={setTournaments}
         onChange={handleChangeMutch}
-        // sx={{ width: 300 }}
-        // defaultValue="Small"
-        // size="small"
         renderInput={(params) => <TextField {...params} label="Турнир" />}
       />
       <TextField

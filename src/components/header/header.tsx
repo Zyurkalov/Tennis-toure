@@ -2,7 +2,7 @@ import { FC } from "react";
 import logo from '../../logo/Logo.svg'
 import styles from "./header.module.css";
 
-import { useAppDispatch, useAppSelector } from '../../utilits/hooks';
+import { useAppDispatch, useAppSelector } from '../../utilits';
 import { useEffect } from "react";
 import { toggleMenu } from "../../services/actions";
 

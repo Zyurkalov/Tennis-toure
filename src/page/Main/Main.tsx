@@ -1,5 +1,5 @@
 import { useEffect} from 'react'
-import { useAppDispatch, useAppSelector } from '../../utilits/hooks';
+import { useAppDispatch, useAppSelector } from '../../utilits';
 
 import Header from '../../components/header/header'
 import TournamentBrief from '../../components/tournamentBrief/tournamentBrief'
@@ -21,18 +21,18 @@ const headerObj = {
 }
 
 function Main() {
-  const dispatch = useAppDispatch();
-  const store = useAppSelector(state => state?.todos);
+  // const dispatch = useAppDispatch();
+  // const store = useAppSelector(state => state?.todos);
 
-useEffect(() => {
-  console.log(store.todo); 
-}, [store.todo]);
+// useEffect(() => {
+//   console.log(store.todo); 
+// }, [store.todo]);
 
   return (
     <>
       <div className='page'>
         <Header />
-        <button onClick={() => {dispatch(addTodo('покормить кота'))}}>+</button>
+        {/* <button onClick={() => {dispatch(addTodo('покормить кота'))}}>+</button> */}
         <TournamentBrief textObject={headerObj}></TournamentBrief>
         <PlayersSearchForm />
         <PlayersScoreCards objTournament={HARD_DATA} />

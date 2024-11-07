@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../../../utilits/hooks";
+import { useAppDispatch, useAppSelector } from "../../../utilits";
 import styles from "./menu.module.css"
 
 const settingMenu = {

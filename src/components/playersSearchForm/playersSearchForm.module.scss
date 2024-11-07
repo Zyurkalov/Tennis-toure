@@ -2,9 +2,13 @@
     padding: var(--margin-outsideBlock);
     margin-bottom: var(--margin-outsideBlock);
     display: flex;
-    flex-direction: column;
+
     gap: 15px;
 
     background-color: var(--color-default);
     border-radius: 12px;
+    
+    &__column {
+        flex-direction: column;
+    }
 }
