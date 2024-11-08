@@ -1,0 +1,42 @@
+.header {
+    margin: 10px 0 0px;
+    padding: 0px var(--mg-15) 0 0;
+
+    display: flex;
+    
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    &__container {
+        padding: 0 11px 0 16px;
+        width: 100%;
+        min-height: 60px;
+    }
+
+    &__button {
+        height: 40px;
+        padding: 0px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__logo {
+        width: 55px;
+        height: 40px;
+        font-size: medium;
+        font-weight: 900;
+    }
+
+    &_desktop {
+        min-width: var(--desktop-size);
+    }
+
+    &_tablet {
+        min-width: var(--tablet-size);
+    }
+
+    &_mobile {
+        width: 100%;
+    }
+}

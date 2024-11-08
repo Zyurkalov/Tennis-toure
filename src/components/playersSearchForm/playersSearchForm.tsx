@@ -32,10 +32,14 @@ const PlayersSearchForm: FC<{sizeWindows: string}> = ({sizeWindows}) => {
     return () => clearTimeout(delaySearch);
   }, [inputValue]);
 
-  const handleStyle = () => {
-    return sizeWindows === ScreenType.mobile ? styles.inputField__screen_mobile
-      : sizeWindows === ScreenType.tablet ? styles.inputField__screen_tablet
-      : styles.inputField__screen_desktop
+  const handleScreenStyle = (styleName: string) => {
+    return sizeWindows === ScreenType.mobile ? styles[styleName +'_mobile']
+      : sizeWindows === ScreenType.tablet ? styles[styleName +'_tablet']
+      : styles[styleName +'_desktop']
+  }
+
+  const handleNotMobileStyle = (styleName: string)  => {
+    return sizeWindows !==  ScreenType.mobile ? styles[styleName + '_notMobile'] : null
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -47,32 +51,30 @@ const PlayersSearchForm: FC<{sizeWindows: string}> = ({sizeWindows}) => {
   }
 
   return (
-    <div className={clsx(styles.inputField, handleStyle(), "drop-shadow")}>
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={setTournaments}
-        onChange={handleChangeMutch}
-        renderInput={(params) => <TextField {...params} label="Турнир" />}
-        // sx={{minWidth: 300}}
- 
-      />
-      <TextField
-        id="demo-helper-text-aligned-no-helper"
-        label="Найти игрока"
-        maxRows={1}
-        onChange={handleChange}
-        value={inputValue}
-        // sx={{width: 30000}}
-        // size="small"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon fontSize="large" />
-            </InputAdornment>
-          ),
-        }}
-      />
+    <div className={clsx(styles.inputField, handleScreenStyle('inputField__screen'), "drop-shadow")}>
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={setTournaments}
+          onChange={handleChangeMutch}
+          renderInput={(params) => <TextField {...params} label="Турнир" />}
+          className={clsx(styles.inputField__tournaments, handleNotMobileStyle('inputField__tournaments'))}
+        />
+        <TextField
+          id="demo-helper-text-aligned-no-helper"
+          label="Найти игрока"
+          maxRows={1}
+          onChange={handleChange}
+          value={inputValue}
+          className={clsx(styles.inputField__player, handleNotMobileStyle('inputField__player'))}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon fontSize="large" />
+              </InputAdornment>
+            ),
+          }}
+        />
     </div>
   )
 }

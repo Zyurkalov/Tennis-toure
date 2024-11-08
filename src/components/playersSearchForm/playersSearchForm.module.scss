@@ -1,26 +1,38 @@
 .inputField {
-    max-width: 900px;
+    max-width: var(--desktop-size);
     box-sizing: border-box;
     padding: var(--margin-outsideBlock);
-    margin-bottom: var(--margin-outsideBlock);
+    margin-bottom: var(--mg-28);
     display: flex;
 
-    gap: 15px;
+    gap: var(--mg-10);
 
     background-color: var(--color-default);
-    border-radius: 12px;
-    
+    border-radius: var(--bordre-radius-medium);
+
     &__screen {
+        
         &_mobile {
             flex-direction: column;
+            max-width: none;
             min-width: 100%;
         }
         &_tablet {
-            min-width: 768px;
+            min-width: var(--tablet-size);
         }
         &_desktop {
-            min-width: 1024px;
+            min-width: var(--desktop-size);
+        }   
+    }
+    &__tournaments {
+        &_notMobile {
+            flex: 0 0 auto;
+            flex-basis: 325px;
         }
-        
+    }
+    &__player {
+        &_notMobile {
+            flex-grow: 1;
+        }
     }
 }

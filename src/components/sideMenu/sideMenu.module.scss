@@ -1,0 +1,125 @@
+.menuContainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+
+    background-color: transparent;
+    transition: background-color 0.25s ease-in;
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+
+    &_background{
+        background-color: rgba(#000000, 0.4);
+        transition: background-color 0.25s ease-in;
+        pointer-events: all;
+    }
+}
+.menu {
+    margin: 0;
+    padding: 0 16px;
+
+    box-sizing: border-box;
+    min-height: 100%;
+    // width: var(--mobile-size);
+    width: 340px;
+    background-color: var(--color-limon);
+
+    position: fixed;
+    top: 0;
+    right: -340px;
+    transition: right 0.25s ease-in-out;
+
+   &_transition {
+    right: 0;
+    transition: right 0.25s ease-in-out;
+   }
+
+   &__header {
+    box-sizing: border-box;
+    padding: 10px 0;
+    width: 100%;
+    min-height: 100px;
+
+    display: flex;
+    justify-content: space-between;
+   }
+
+   &__logo {
+    width: 55px;
+    height: 40px;
+    font-size: medium;
+    font-weight: 900;
+   }
+
+   &__burgerMenu {
+    height: 40px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+   }
+
+   &__ul {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+   }
+
+   &__li {
+    min-width: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: solid 3px black;
+
+    &_padding {
+    }
+
+    &:last-child {
+        margin-top: 35px;
+        border: none;
+        justify-content: center;
+    }
+   }
+
+   &__link {
+    font-family: var(--font-header);
+    font-optical-sizing: auto;
+    font-size: 28px;
+    font-weight: 600;
+
+    text-transform: lowercase;
+    text-decoration: none;
+
+
+    &:visited {
+        color: black;
+    }
+    &:hover {
+        color: var(--color-green);
+    }
+    // &:not(:visited) {
+    //     color: black;
+    // }
+   }
+
+   &__buttonClose {
+    background-color: transparent;
+    border: none;
+
+    font-family: var(--font-header);
+    font-optical-sizing: auto;
+    font-size: 45px;
+    font-weight: 600;
+
+    color: var(--color-green);
+    cursor: pointer;
+   }
+}

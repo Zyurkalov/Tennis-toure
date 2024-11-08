@@ -1,12 +1,20 @@
 import { FC,  useState } from "react"
-import styles from "./tournamentBrief.module.css"
+import { ScreenType } from "../../utilits/hooks/useWindowSize";
+import styles from "./tournamentBrief.module.scss"
+import clsx from "clsx";
 
-const TournamentBrief: FC<{ textObject: {[key: string]: string;} }> = ({textObject}) => {
+const TournamentBrief: FC<{ textObject: {[key: string]: string;}, sizeWindows:string }> = ({textObject, sizeWindows}) => {
     const [collapsed, setCollapsed]= useState(false);
+
+    const handleStyle = () => {
+        return sizeWindows === ScreenType.mobile ? styles.news__mobile
+          : sizeWindows === ScreenType.tablet ? styles.news__tablet
+          : styles.news__desktop
+      }
 
     const collapseBrief = () => {setCollapsed(!collapsed)}
     return (
-        <div className={`${styles.news} ${collapsed ? styles.news__collapsed : null}`}>
+        <div className={clsx(styles.news, collapsed ? styles.news__collapsed : null, handleStyle())}>
             <h1 className={styles.news_h}>{textObject.header}</h1>
             <div className={styles.news_container}>
                 <p className={styles.news_p}>{textObject.paragraph}</p>

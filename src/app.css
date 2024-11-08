@@ -6,14 +6,14 @@
   font-style: normal;
 } */
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   src: url("./fonts/roboto-regular-webfont.woff2") format('woff2'),
        url("./fonts/roboto-regular-webfont.woff") format('woff');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   src: url('./fonts/roboto-light-webfont.woff2') format('woff2'), 
        url('./fonts/roboto-light-webfont.woff') format('woff');
   font-weight: 300;
@@ -44,12 +44,14 @@ li {
   list-style: none;
 }
 
+
 body, p, h1, h2, span {
   margin: 0;
 }
 
 :root {
   font-family: 'Roboto', 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', system-ui, sans-serif;
+  font-optical-sizing: auto;
   line-height: 1.5;
   font-weight: 400;
 
@@ -61,7 +63,16 @@ body, p, h1, h2, span {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --mobile-size: 320px;
+  --tablet-size: 768px;
+  --desktop-size: 1024px;
+
+  --font-header: 'Unbounded', sans-serif;
+
   --margin-outsideBlock: 15px;
+  --mg-10: 10px;
+  --mg-15: 15px;
+  --mg-28: 28px;
   --color-default: rgba(255, 255, 255, 1);
   --color-white-95: rgba(255, 255, 255, 0.95);
   --color-white-90: rgba(255, 255, 255, 0.90);
@@ -69,6 +80,8 @@ body, p, h1, h2, span {
   --color-green: #3D5138;
   --color-limon: #CCFF00;
   --color-yellow: #FFA000;
+
+  --bordre-radius-medium: 12px;
 
   background-color: var(--color-green);
 }
