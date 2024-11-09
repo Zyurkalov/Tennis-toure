@@ -1,9 +1,9 @@
-import {typeCart, typeObjCart } from "../playersScoreCards/constants"
+import {typeCart} from "../playersScoreCards/constants"
 import EmojiEventsIcon from "../../assets/EmojiEventIcon"
 import { FC } from "react"
 import styles from './card.module.scss'
 
-export const Card: FC<{element: typeCart, index: number}>  = ({element, index}) => {
+export const Card: FC<{element: typeCart}>  = ({element}) => {
 
   const matchStatus = (obj: typeCart) => {
     return obj.status === 'completed' 

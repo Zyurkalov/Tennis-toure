@@ -8,4 +8,5 @@
     "strict": true
   },
   "include": ["vite.config.ts"]
+  // "include": ["src/*.ts", "src/**/*.ts", "src/**/*.tsx"]
 }

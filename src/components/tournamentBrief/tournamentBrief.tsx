@@ -6,7 +6,7 @@ import { MainContext } from "../../page/Main/mainContext";
 
 const TournamentBrief: FC<{ textObject: {[key: string]: string;}}> = ({textObject}) => {
     const dataConext = useContext(MainContext)
-    const [collapsed, setCollapsed]= useState(false);
+    const [collapsed]= useState(false);
 
     const handleStyle = () => {
         return dataConext.screen === ScreenType.mobile ? styles.news__mobile
@@ -14,7 +14,7 @@ const TournamentBrief: FC<{ textObject: {[key: string]: string;}}> = ({textObjec
           : styles.news__desktop
       }
 
-    const collapseBrief = () => {setCollapsed(!collapsed)} // на случай если надо будет скрывать новости
+    // const collapseBrief = () => {setCollapsed(!collapsed)} // на случай если надо будет скрывать новости
     return (
         <div className={clsx(styles.news, collapsed ? styles.news__collapsed : null, handleStyle())}>
             <h1 className={styles.news_h}>{textObject.header}</h1>

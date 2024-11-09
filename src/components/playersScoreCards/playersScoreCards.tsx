@@ -20,7 +20,7 @@ const PlayersScoreCard = () => {
   const getCards = (element: typeCart, index: number) => {
     return (
         <li key={index} className={styles.card}>
-          <Card element={element} index={index} />
+          <Card element={element} />
         </li>
     )
   }
