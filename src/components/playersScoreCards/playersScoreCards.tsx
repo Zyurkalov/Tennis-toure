@@ -16,7 +16,6 @@ const PlayersScoreCard = () => {
       : styles.gridContainer_desktop
   }
   useEffect(() => {
-    console.log(userCardsFind)
   }, [searchCards])
   const getCards = (element: typeCart, index: number) => {
     return (

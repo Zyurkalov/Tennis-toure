@@ -32,7 +32,6 @@ const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({s
       if (inputValue === "") {
         setFilteredMatches(cards);
       }
-      console.log(cards);
     }, 1000); 
 
     return () => clearTimeout(delaySearch);
