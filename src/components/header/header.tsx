@@ -1,34 +1,27 @@
-import { FC } from "react";
-import logo from '../../logo/Logo.svg'
-import styles from "./header.module.scss";
-
+import { useContext } from "react";
 import { useAppDispatch } from '../../utilits';
-// import { useEffect } from "react";
 import { toggleMenu } from "../../services/actions";
 import { ScreenType } from "../../utilits/hooks/useWindowSize";
+import { MainContext } from "../../page/Main/mainContext";
 import clsx from "clsx";
 
-// import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import logo from '../../logo/Logo.svg'
 import MenuIcon from '../../assets/MenuLogo';
-// import MenuIcon from '@mui/icons-material/Menu';
+import styles from "./header.module.scss";
 
-const Header: FC<{sizeWindows: string}> = ({sizeWindows}) => {
+const Header = () => {
+  const dataContext = useContext(MainContext);
   const dispatch = useAppDispatch();
-  // const statusMenu = useAppSelector(state => state?.menu);
 
   const click = () => {
     dispatch(toggleMenu())
   }
 
   const createScreenStyle = (styleName: string) => {
-    return sizeWindows === ScreenType.mobile ? styles[styleName +'_mobile']
-      : sizeWindows === ScreenType.tablet ? styles[styleName +'_tablet']
+    return dataContext.screen === ScreenType.mobile ? styles[styleName +'_mobile']
+      : dataContext.screen === ScreenType.tablet ? styles[styleName +'_tablet']
       : styles[styleName +'_desktop']
   }
-
-  // useEffect(() => {
-  //   console.log(statusMenu.menu); 
-  // }, [statusMenu.menu]);
 
   return (
     <nav className={clsx(styles.header, createScreenStyle('header'))}>

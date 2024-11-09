@@ -1,18 +1,20 @@
-import { FC,  useState } from "react"
+import { FC,  useContext,  useState } from "react"
 import { ScreenType } from "../../utilits/hooks/useWindowSize";
 import styles from "./tournamentBrief.module.scss"
 import clsx from "clsx";
+import { MainContext } from "../../page/Main/mainContext";
 
-const TournamentBrief: FC<{ textObject: {[key: string]: string;}, sizeWindows:string }> = ({textObject, sizeWindows}) => {
+const TournamentBrief: FC<{ textObject: {[key: string]: string;}}> = ({textObject}) => {
+    const dataConext = useContext(MainContext)
     const [collapsed, setCollapsed]= useState(false);
 
     const handleStyle = () => {
-        return sizeWindows === ScreenType.mobile ? styles.news__mobile
-          : sizeWindows === ScreenType.tablet ? styles.news__tablet
+        return dataConext.screen === ScreenType.mobile ? styles.news__mobile
+          : dataConext.screen === ScreenType.tablet ? styles.news__tablet
           : styles.news__desktop
       }
 
-    const collapseBrief = () => {setCollapsed(!collapsed)}
+    const collapseBrief = () => {setCollapsed(!collapsed)} // на случай если надо будет скрывать новости
     return (
         <div className={clsx(styles.news, collapsed ? styles.news__collapsed : null, handleStyle())}>
             <h1 className={styles.news_h}>{textObject.header}</h1>

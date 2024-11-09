@@ -1,21 +1,20 @@
-import { useEffect} from 'react'
-import { useAppDispatch, useAppSelector } from '../../utilits';
+import { useEffect, useState} from 'react'
+import { useAppSelector } from '../../utilits';
 
 import Header from '../../components/header/header'
 import TournamentBrief from '../../components/tournamentBrief/tournamentBrief'
 import PlayersSearchForm from '../../components/playersSearchForm/playersSearchForm'
 import PlayersScoreCards from '../../components/playersScoreCards/playersScoreCards'
+import { TournamentType } from './type';
 
-import { addTodo } from '../../services/actions';
-import { HARD_DATA } from '../../components/playersScoreCards/constants'
-
-// import { typeObjCart } from '../../components/playersScoreCards/constants';
-// import { DeviceUnknown } from '@mui/icons-material';
-// import './Main.css'
-import styles from './main.module.scss';
-import { useWindowsSize } from '../../utilits/hooks/useWindowSize';
-import { Style } from '@mui/icons-material';
+// import { addTodo } from '../../services/actions';
+import { ScreenType, useWindowsSize } from '../../utilits/hooks/useWindowSize';
 import { SideMenu } from '../../components/sideMenu/SideMenu';
+import { HARD_DATA, typeCart } from '../../components/playersScoreCards/constants'
+import { MainContext } from './mainContext';
+
+import styles from './main.module.scss';
+
 
 const headerObj = {
   header: "Кубок Тюмени", 
@@ -25,29 +24,65 @@ const headerObj = {
 
 function Main() {
   const sizeWindows = useWindowsSize()
-  const dispatch = useAppDispatch();
-  const store = useAppSelector(state => state?.todos);
+  // const dispatch = useAppDispatch();
+  // const store = useAppSelector(state => state?.todos);
   const statusMenu = useAppSelector(state => state?.menu)
 
-useEffect(() => {
-  console.log(store.todo); 
-  console.log(statusMenu.menu)
-}, [store.todo, statusMenu.menu]);
+  const [showMenu, setShowMenu] = useState<JSX.Element | null>(null);
+  const [tournament, setTournament] = useState('' as TournamentType);
+  const [filteredMatches, setFilteredMatches] = useState([] as typeCart[]);
+
+  function getKeyByValue(value: string): string | undefined {
+    return Object.keys(TournamentType).find(key => TournamentType[key as keyof typeof TournamentType] === value);
+  }
+
+  const getTournamentList = (tour: string) => {
+    if(tour) {
+      const nameTour = getKeyByValue(tour);
+      if(nameTour) {
+          return HARD_DATA[nameTour];
+      } else {
+          return HARD_DATA.TyumenCup;
+      }
+    } else {
+        return HARD_DATA.TyumenCup;
+    }
+  }
+
+  useEffect(() => {
+    if (statusMenu.menu) {
+      const timeoutId = setTimeout(() => {
+        setShowMenu(<SideMenu />);
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+
+    else {
+      const timeoutId = setTimeout(() => {
+        setShowMenu(null);
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [statusMenu.menu]);
 
   return (
-    <>
-      <div className={styles.page}>
-        <Header sizeWindows={sizeWindows}/>
-        <TournamentBrief textObject={headerObj} sizeWindows={sizeWindows}></TournamentBrief>
-        <PlayersSearchForm sizeWindows={sizeWindows}/>
-        <PlayersScoreCards objTournament={HARD_DATA} sizeWindows={sizeWindows}/>
+        <MainContext.Provider
+          value={{
+            screen: sizeWindows as ScreenType,
+            cards: getTournamentList(tournament),
+            match: tournament,
+            searchCards: filteredMatches
+          }}
+        >
+          <div className={styles.page}>
+            <Header />
+            <TournamentBrief textObject={headerObj}></TournamentBrief>
+            <PlayersSearchForm setTournament={setTournament} setFilteredMatches={setFilteredMatches}/>
+            <PlayersScoreCards />
+            {showMenu}
+          </div>
+        </MainContext.Provider>
 
-        {statusMenu.menu && <SideMenu />}
-        {/* <SideMenu aria-hidden={statusMenu.menu ? 'false' : 'true'}/> */}
-        {/* <SideMenu /> */}
-      </div>
-    </>
-  )
+  );
 }
-
 export default Main
