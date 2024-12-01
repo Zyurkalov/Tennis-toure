@@ -79,9 +79,6 @@
 
     border-bottom: solid 3px black;
 
-    &_padding {
-    }
-
     &:last-child {
         margin-top: 35px;
         border: none;
@@ -97,17 +94,11 @@
 
     text-transform: lowercase;
     text-decoration: none;
+    color: black;
 
-
-    &:visited {
-        color: black;
-    }
     &:hover {
         color: var(--color-green);
     }
-    // &:not(:visited) {
-    //     color: black;
-    // }
    }
 
    &__buttonClose {

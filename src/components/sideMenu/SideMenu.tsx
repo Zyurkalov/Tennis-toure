@@ -14,6 +14,7 @@ export const SideMenu = () => {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
     const dispatch = useAppDispatch()
+    const eventDisable = (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
     const click = () => {
         dispatch(toggleMenu())
       }
@@ -59,19 +60,19 @@ export const SideMenu = () => {
           </header>
           <ul className={styles.menu__ul}>
             <li className={styles.menu__li}>
-              <a className={styles.menu__link} href="/">
+              <a className={styles.menu__link} href="/" onClick={(e) => eventDisable(e)}>
                 Профиль
               </a>
               <ArrowForwardIcon sx={{ fontSize: 45 }} />
             </li>
             <li className={styles.menu__li}>
-              <a className={styles.menu__link} href="/">
+              <a className={styles.menu__link} href="/" onClick={(e) => eventDisable(e)}>
                 Расписание
               </a>
               <ArrowForwardIcon sx={{ fontSize: 45 }} />
             </li>
             <li className={`${styles.menu__li} ${styles.menu__li_padding}`}>
-              <a className={styles.menu__link} href="/">
+              <a className={styles.menu__link} href="/" onClick={(e) => eventDisable(e)}>
                 Открыть матч
               </a>
               <ContentPasteIcon sx={{ fontSize: 35 }} />
