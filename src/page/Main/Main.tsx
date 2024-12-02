@@ -14,6 +14,8 @@ import { HARD_DATA, typeCart } from '../../components/playersScoreCards/constant
 import { MainContext } from './mainContext';
 
 import styles from './main.module.scss';
+import clsx from 'clsx';
+import { useScreenStyle } from '../../utilits/hooks/useScreenStyle';
 
 
 const headerObj = {
@@ -74,7 +76,7 @@ function Main() {
             searchCards: filteredMatches
           }}
         >
-          <div className={styles.page}>
+          <div className={clsx(styles.page, useScreenStyle(styles, 'page'))}>
             <Header />
             <TournamentBrief textObject={headerObj}></TournamentBrief>
             <PlayersSearchForm setTournament={setTournament} setFilteredMatches={setFilteredMatches}/>

@@ -11,26 +11,35 @@
     border-radius: var(--bordre-radius-medium);
 
     &__screen {
-        
+        margin: auto;
         &_mobile {
             flex-direction: column;
             max-width: none;
             min-width: 100%;
         }
         &_tablet {
-            min-width: var(--tablet-size);
+            min-width: calc(var(--tablet-size) - var(--scroll-bar));
         }
         &_desktop {
-            min-width: var(--desktop-size);
+            min-width: calc(var(--desktop-size) - var(--scroll-bar));
         }   
     }
     &__tournaments {
+        &_tablet,
+        &_desktop {
+            flex: 0 0 auto;
+            flex-basis: 325px;
+        } 
         &_notMobile {
             flex: 0 0 auto;
             flex-basis: 325px;
         }
     }
     &__player {
+        &_tablet,
+        &_desktop {
+            flex-grow: 1;
+        }
         &_notMobile {
             flex-grow: 1;
         }

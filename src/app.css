@@ -66,6 +66,7 @@ body, p, h1, h2, span {
   --mobile-size: 320px;
   --tablet-size: 768px;
   --desktop-size: 1024px;
+  --scroll-bar: 20px;
 
   --font-header: 'Unbounded', sans-serif;
 

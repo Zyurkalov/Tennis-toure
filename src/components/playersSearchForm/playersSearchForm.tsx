@@ -5,15 +5,15 @@ import TextField from '@mui/material/TextField';
 
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
-import { ScreenType } from "../../utilits/hooks/useWindowSize";
 import clsx from "clsx";
 import { TournamentType } from "../../page/Main/type";
 import { MainContext } from "../../page/Main/mainContext";
+import { useScreenStyle } from "../../utilits/hooks/useScreenStyle";
 
 const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({setTournament, setFilteredMatches}) => {
 
   const [inputValue, setInputValue] = useState('');
-  const {cards, screen} = useContext(MainContext)
+  const {cards} = useContext(MainContext)
 
   useEffect(() => {
     //выглядит так, будто стоит перенести логику в Main
@@ -38,15 +38,15 @@ const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({s
   }, [inputValue, cards]);
 
 
-  const handleScreenStyle = (styleName: string) => {
-    return screen === ScreenType.mobile ? styles[styleName +'_mobile']
-      : screen === ScreenType.tablet ? styles[styleName +'_tablet']
-      : styles[styleName +'_desktop']
-  }
+  // const handleScreenStyle = (styleName: string) => {
+  //   return screen === ScreenType.mobile ? styles[styleName +'_mobile']
+  //     : screen === ScreenType.tablet ? styles[styleName +'_tablet']
+  //     : styles[styleName +'_desktop']
+  // }
 
-  const handleNotMobileStyle = (styleName: string)  => {
-    return screen !==  ScreenType.mobile ? styles[styleName + '_notMobile'] : null
-  }
+  // const handleNotMobileStyle = (styleName: string)  => {
+  //   return screen !==  ScreenType.mobile ? styles[styleName + '_notMobile'] : null
+  // }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -57,14 +57,14 @@ const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({s
   }
 
   return (
-    <div className={clsx(styles.inputField, handleScreenStyle('inputField__screen'), "drop-shadow")}>
+    <div className={clsx(styles.inputField, useScreenStyle(styles, 'inputField__screen'), "drop-shadow")}>
         <Autocomplete
           disablePortal
           id="combo-box-demo"
           options={Object.keys(TournamentType).map(key => TournamentType[key as keyof typeof TournamentType])}
           onChange={handleChangeMutch}
           renderInput={(params) => <TextField {...params} label="Турнир" />}
-          className={clsx(styles.inputField__tournaments, handleNotMobileStyle('inputField__tournaments'))}
+          className={clsx(styles.inputField__tournaments, useScreenStyle(styles,'inputField__tournaments'))}
         />
         <TextField
           id="demo-helper-text-aligned-no-helper"
@@ -72,7 +72,7 @@ const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({s
           maxRows={1}
           onChange={handleChange}
           value={inputValue}
-          className={clsx(styles.inputField__player, handleNotMobileStyle('inputField__player'))}
+          className={clsx(styles.inputField__player, useScreenStyle(styles,'inputField__player'))}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

@@ -1,16 +1,24 @@
 
 .page {
     margin:auto;
-    width: 100%;
     min-width: 320px;
     min-height: 100%;
 
-    overflow: hidden;
+    // overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     background-color: transparent;
+
+    &_tablet,
+    &_desktop {
+        max-width: 100%;
+    }
+    &_mobile {
+        max-width: 414px;
+        min-width: 60%;
+    }
 }
 .drop-shadow {
     box-shadow: 0px 7px 11px 0px #0f2b464a

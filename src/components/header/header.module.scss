@@ -29,11 +29,11 @@
     }
 
     &_desktop {
-        min-width: var(--desktop-size);
+        min-width: calc(var(--desktop-size) - var(--scroll-bar));
     }
 
     &_tablet {
-        min-width: var(--tablet-size);
+        min-width: calc(var(--tablet-size) - var(--scroll-bar));
     }
 
     &_mobile {

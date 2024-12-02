@@ -12,10 +12,10 @@
         flex-direction: column;
     }
     &__tablet {
-        min-width: var(--tablet-size);
+        min-width: calc(var(--tablet-size) - var(--scroll-bar));
     }
     &__desktop {
-        min-width: var(--desktop-size);
+        min-width: calc(var(--desktop-size) - var(--scroll-bar));
     }
 
 }
