@@ -16,7 +16,6 @@ const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({s
   const {cards} = useContext(MainContext)
 
   useEffect(() => {
-    //выглядит так, будто стоит перенести логику в Main
     const delaySearch = setTimeout(() => {
       const regexPattern = new RegExp(`${inputValue.trim()}`, "i");
 
@@ -36,17 +35,6 @@ const PlayersSearchForm: FC<{setTournament: any, setFilteredMatches: any}> = ({s
 
     return () => clearTimeout(delaySearch);
   }, [inputValue, cards]);
-
-
-  // const handleScreenStyle = (styleName: string) => {
-  //   return screen === ScreenType.mobile ? styles[styleName +'_mobile']
-  //     : screen === ScreenType.tablet ? styles[styleName +'_tablet']
-  //     : styles[styleName +'_desktop']
-  // }
-
-  // const handleNotMobileStyle = (styleName: string)  => {
-  //   return screen !==  ScreenType.mobile ? styles[styleName + '_notMobile'] : null
-  // }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);

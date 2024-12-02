@@ -7,14 +7,14 @@
     justify-content: space-between;
     box-sizing: border-box;
 
-    &__mobile {
+    &_mobile {
         min-width: 100%;
         flex-direction: column;
     }
-    &__tablet {
+    &_tablet {
         min-width: calc(var(--tablet-size) - var(--scroll-bar));
     }
-    &__desktop {
+    &_desktop {
         min-width: calc(var(--desktop-size) - var(--scroll-bar));
     }
 
