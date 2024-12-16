@@ -29,6 +29,7 @@ function Main() {
   // const dispatch = useAppDispatch();
   // const store = useAppSelector(state => state?.todos);
   const statusMenu = useAppSelector(state => state?.menu)
+  // console.log(statusMenu)
 
   const [showMenu, setShowMenu] = useState<JSX.Element | null>(null);
   const [tournament, setTournament] = useState('' as TournamentType);
@@ -52,7 +53,7 @@ function Main() {
   }
 
   useEffect(() => {
-    if (statusMenu.menu) {
+    if (statusMenu) {
       const timeoutId = setTimeout(() => {
         setShowMenu(<SideMenu />);
       }, 100);
@@ -65,7 +66,7 @@ function Main() {
       }, 100);
       return () => clearTimeout(timeoutId);
     }
-  }, [statusMenu.menu]);
+  }, [statusMenu]);
 
   return (
         <MainContext.Provider

@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../utilits';
-import { toggleMenu } from "../../services/actions";
+import { toggle } from '../../services/reducers/menuReducer';
 import { useScreenStyle } from "../../utilits/hooks/useScreenStyle";
 import clsx from "clsx";
 
@@ -9,9 +9,8 @@ import styles from "./header.module.scss";
 
 const Header = () => {
   const dispatch = useAppDispatch();
-
-  const click = () => {
-    dispatch(toggleMenu())
+  const toggleMenu = () => {
+    dispatch(toggle())
   }
 
   return (
@@ -19,7 +18,7 @@ const Header = () => {
         <div className={styles.header__container}>
           <img className={styles.header__logo} src={logo} alt="логотип"></img>
         </div>
-          <button className={styles.header__button} onClick={click}>
+          <button className={styles.header__button} onClick={toggleMenu}>
             <MenuIcon sx={{ fontSize: 40, color: "white"}} />
           </button>
     </nav>

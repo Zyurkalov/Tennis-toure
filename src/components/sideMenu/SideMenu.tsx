@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import MenuIcon from '../../assets/MenuLogo';
 import ArrowForwardIcon from '../../assets/ArrowForwardIcon';
 import ContentPasteIcon from '../../assets/ContentPasteIcon';
-import { toggleMenu } from "../../services/actions";
+import { toggle } from '../../services/reducers/menuReducer';
 import logo from '../../logo/Logo.svg';
 import styles from './sideMenu.module.scss'
 import clsx from 'clsx'
@@ -16,11 +16,11 @@ export const SideMenu = () => {
     const dispatch = useAppDispatch()
     const eventDisable = (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
     const click = () => {
-        dispatch(toggleMenu())
+        dispatch(toggle())
       }
 
     useEffect(() => {
-        if(statusMenu.menu) {
+        if(statusMenu) {
         const timer = setTimeout(() => {
             setIsMenuVisible(true);
         }, 100);
@@ -34,13 +34,13 @@ export const SideMenu = () => {
 
          return () => clearTimeout(timer);
         }
-    }, [statusMenu.menu]);
+    }, [statusMenu]);
 
 
     return (
       <div
         className={`${styles.menuContainer} ${
-          statusMenu.menu && styles.menuContainer_background
+          statusMenu && styles.menuContainer_background
         }`}
       >
         <nav
