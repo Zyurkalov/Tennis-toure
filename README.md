@@ -37,5 +37,5 @@
 ### Используемые инструменты:
 - HTML, SCSS
 - JavaScript, TypeScript
-- React, React.Context, Redux
+- React, React-router, Redux-toolkit, Redux-thunk
 - сборщик Vite
