@@ -1,89 +1,92 @@
-/* @font-face {
-  font-family: 'Jost';
-  src: url('src/fonts/jost_wght800-webfont.woff2') format('woff2'), 
-       url("src/fonts/jost_wght800-webfont.woff") format('woff');
-  font-weight: 800;
-  font-style: normal;
-} */
 @font-face {
-  font-family: 'Roboto';
-  src: url("./fonts/roboto-regular-webfont.woff2") format('woff2'),
-       url("./fonts/roboto-regular-webfont.woff") format('woff');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Roboto';
+    src:
+        url('./fonts/roboto-regular-webfont.woff2') format('woff2'),
+        url('./fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/roboto-light-webfont.woff2') format('woff2'), 
-       url('./fonts/roboto-light-webfont.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Unboinded";
-  src: url('./fonts/Unbounded-Regular.woff2')format('woff2');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Roboto';
+    src:
+        url('./fonts/roboto-light-webfont.woff2') format('woff2'),
+        url('./fonts/roboto-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
 }
 @font-face {
-  font-family: "Unboinded";
-  src: url('./fonts/Unbounded-SemiBold.woff2')format('woff2');
-  font-weight: 600;
-  font-style: normal;
+    font-family: 'Unboinded';
+    src: url('./fonts/Unbounded-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: auto;
+}
+@font-face {
+    font-family: 'Unboinded';
+    src: url('./fonts/Unbounded-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: auto;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+
 li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-
-body, p, h1, h2, span {
-  margin: 0;
+body,
+p,
+h1,
+h2,
+span {
+    margin: 0;
 }
 
 :root {
-  font-family: 'Roboto', 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', system-ui, sans-serif;
-  font-optical-sizing: auto;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family:
+        'Roboto', 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', system-ui, sans-serif;
+    font-optical-sizing: auto;
+    line-height: 1.5;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    color-scheme: light dark;
+    color: rgba(0, 0, 0, 0.87);
 
-  --mobile-size: 320px;
-  --tablet-size: 768px;
-  --desktop-size: 1024px;
-  --scroll-bar: 20px;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  --font-header: 'Unbounded', sans-serif;
+    --mobile-size: 320px;
+    --tablet-size: 768px;
+    --desktop-size: 1024px;
+    --scroll-bar: 20px;
+    --header-height: 50px;
 
-  --margin-outsideBlock: 15px;
-  --mg-10: 10px;
-  --mg-15: 15px;
-  --mg-28: 28px;
-  --color-default: rgba(255, 255, 255, 1);
-  --color-white-95: rgba(255, 255, 255, 0.95);
-  --color-white-90: rgba(255, 255, 255, 0.90);
-  --color-text-green: #1B5E20;
-  --color-green: #3D5138;
-  --color-limon: #CCFF00;
-  --color-yellow: #FFA000;
+    --font-header: 'Unbounded', sans-serif;
 
-  --bordre-radius-medium: 12px;
+    --margin-outsideBlock: 15px;
+    --mg-10: 10px;
+    --mg-15: 15px;
+    --mg-28: 28px;
+    --color-default: rgba(255, 255, 255, 1);
+    --color-white-95: rgba(255, 255, 255, 0.95);
+    --color-white-90: rgba(255, 255, 255, 0.9);
+    --color-text-green: #1b5e20;
+    --color-green: #3d5138;
+    --color-grey-main: rgba(174, 180, 173, 1);
+    --color-limon: #ccff00;
+    --color-yellow: #ffa000;
 
-  background-color: var(--color-green);
+    --bordre-radius-medium: 12px;
+
+    background-color: var(--color-green);
 }
-

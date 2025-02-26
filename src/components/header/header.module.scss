@@ -1,16 +1,16 @@
 .header {
-    margin: 10px 0 0px;
+    margin: var(--mg-10) 0 0px;
     padding: 0px var(--mg-15) 0 0;
 
     display: flex;
-    
+
     justify-content: space-between;
     box-sizing: border-box;
 
     &__container {
         padding: 0 11px 0 16px;
         width: 100%;
-        min-height: 60px;
+        min-height: var(--header-height);
     }
 
     &__button {
@@ -37,6 +37,6 @@
     }
 
     &_mobile {
-        width: 100%;
+        width: 100dvw;
     }
 }

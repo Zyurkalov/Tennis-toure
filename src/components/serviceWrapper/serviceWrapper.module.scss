@@ -1,0 +1,23 @@
+.wrap {
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    background: var(--color-grey-main);
+    border-radius: var(--bordre-radius-medium);
+    border: solid 2px var(--color-white-95);
+
+    box-shadow: black 20px;
+    &_mobile,
+    &_desktop,
+    &_tablet {
+        max-width: 412px;
+        aspect-ratio: 9 / 19.5;
+    }
+
+    &_mobile {
+        @media screen and (max-width: 450px) {
+            width: 100%;
+            height: calc(100dvh - var(--header-height) - var(--mg-10));
+        }
+    }
+}

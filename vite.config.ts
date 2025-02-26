@@ -1,4 +1,5 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 // import react from '@vitejs/plugin-react-swc'
 // import Inspect from 'vite-plugin-inspect'
 // import path from 'path'
@@ -12,8 +13,8 @@ import { defineConfig } from 'vite'
 //   },
 //   build: {
 //     outDir: 'dist',
-//     assetsDir: '', 
-//     manifest: true, 
+//     assetsDir: '',
+//     manifest: true,
 //     target: 'es2018',
 //     // minify: false,
 //     modulePreload: true,
@@ -27,7 +28,7 @@ import { defineConfig } from 'vite'
 //   },
 //   resolve: {
 //     alias: {
-//       '@': path.resolve(__dirname, './src/components') 
+//       '@': path.resolve(__dirname, './src/components')
 //       // '../../components/sideMenu/SideMenu' => '@/sideMenu/SideMenu' - работает, но линтер указывает на ошибки
 //     }
 //   },
@@ -35,12 +36,28 @@ import { defineConfig } from 'vite'
 // })
 
 export default defineConfig({
-  base: '/Tennis-toure/',
-  build: {
-    outDir: 'dist',
-    target: 'es2018'
-  },
-  server: {
-    cors: false,
-  }
-})
+    base: '/Tennis-toure/',
+    plugins: [react()],
+    build: {
+        outDir: 'dist',
+        target: 'es2018',
+        // добавлено:
+        minify: 'esbuild',
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        return id
+                            .toString()
+                            .split('node_modules/')[1]
+                            .split('/')[0]; // Группировка зависимостей
+                    }
+                },
+            },
+        },
+        //
+    },
+    server: {
+        cors: false,
+    },
+});

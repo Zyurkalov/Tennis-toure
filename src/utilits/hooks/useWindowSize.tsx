@@ -1,33 +1,34 @@
-import { useEffect, useState } from "react";
-import { maxScreenMobile, minTabletMobile } from "../../services/constants";
+import { useEffect, useState } from 'react';
+import { maxScreenMobile, minTabletMobile } from '../../services/constants';
 
 export const enum ScreenType {
-    mobile= 'Mobile',
-	tablet = 'Tablet',
-	desktop = 'Desktop'
+    mobile = 'Mobile',
+    tablet = 'Tablet',
+    desktop = 'Desktop',
 }
 
-export function useWindowsSize () {
-    const [windowsType, setWindowsType] = useState('')
+export const useWindowsSize = () => {
+    const [screen, setScreen] = useState(ScreenType.desktop);
 
     useEffect(() => {
-        const checkWindowsSize = () => {
-            if (window.innerWidth < maxScreenMobile) {
-                setWindowsType(ScreenType.mobile);
-            } else if (window.innerWidth >= maxScreenMobile && window.innerWidth < minTabletMobile) {
-                setWindowsType(ScreenType.tablet);
+        if (typeof window === 'undefined') return;
+
+        const handleResize = () => {
+            const width = window.innerWidth;
+            if (width < maxScreenMobile) {
+                setScreen(ScreenType.mobile);
+            } else if (width >= maxScreenMobile && width < minTabletMobile) {
+                setScreen(ScreenType.tablet);
             } else {
-                setWindowsType(ScreenType.desktop);
+                setScreen(ScreenType.desktop);
             }
-        }
+        };
 
-        checkWindowsSize()
-        window.addEventListener('resize', checkWindowsSize)
+        handleResize();
 
-        return () => {
-            window.removeEventListener('resize', checkWindowsSize)
-        }
-    }, [])
-    
-    return windowsType
-}
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [screen]);
+
+    return screen;
+};

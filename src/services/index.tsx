@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 import todoReducer from './reducers/todoReducer'
 import menuReducer from './reducers/menuReducer'
-import { thunk } from 'redux-thunk'
+//import { thunk } from 'redux-thunk'
 
 const rootReducer = combineReducers({
     todos: todoReducer,
@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
 })
 export const store = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk)
+    //middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk)
 })
 
 export type RootState = ReturnType<typeof store.getState>

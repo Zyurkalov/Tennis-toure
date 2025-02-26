@@ -37,6 +37,7 @@
 }
 .card_scoreList {
     display: flex;
+    justify-content: flex-end;
 }
 .card_score:not(:last-child) {
     letter-spacing: 16px;
