@@ -1,0 +1,9 @@
+.inputContainer > div {
+    margin: var(--mg-15) var(--mg-15) 0;
+}
+
+.form {
+    &__textField {
+        min-width: calc(100% - calc(var(--mg-15) * 2));
+    }
+}

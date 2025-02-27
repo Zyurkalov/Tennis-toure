@@ -1,57 +1,64 @@
 import Autocomplete from '@mui/material/Autocomplete';
 import { AssessmentServiceTypes } from '../types';
-import { useState, ChangeEvent } from 'react';
-import InputAdornment from '@mui/material/InputAdornment';
-import SearchIcon from '@mui/icons-material/Search';
+import { useState, ChangeEvent, useEffect, SyntheticEvent } from 'react';
 
 import clsx from 'clsx';
 import { TextField } from '@mui/material';
 import useScreenStyle from '../../utilits/hooks/useScreenStyle';
 import styles from './assessmentSet.module.scss';
-
-const headerObj = {
-    header: 'Раз',
-    paragraph: 'Два',
-    image: 'Три',
-};
+import { ClassNames } from '@emotion/react';
+import CustomButtonSubmit from '../../UI-kit/CustomButtonSubmit/CustomButtonSubmit';
 
 export default function AssessmentSet() {
+    const [inputPlayer, setInputPlayer] = useState('');
     const [inputValue, setInputValue] = useState('');
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
+    const handleChangePlayer = (event: ChangeEvent<HTMLInputElement>) => {
+        setInputPlayer(event.target.value);
     };
+
+    useEffect(() => {
+        console.log(inputValue);
+    }, [inputValue]);
+
+    function callBack() {
+        return;
+    }
+
     return (
-        <>
-            <Autocomplete
-                disablePortal
-                id='combo-box-demo'
-                options={Object.keys(AssessmentServiceTypes).map(
-                    key =>
-                        AssessmentServiceTypes[
-                            key as keyof typeof AssessmentServiceTypes
-                        ],
-                )}
-                onChange={() => {}}
-                renderInput={params => (
-                    <TextField {...params} label='Тип тренировки' />
-                )}
-            />
-            <TextField
-                id='demo-helper-text-aligned-no-helper'
-                label='Игрок'
-                maxRows={1}
-                onChange={handleChange}
-                value={inputValue}
-                className={clsx()}
-                // InputProps={{
-                //     startAdornment: (
-                //         <InputAdornment position='start'>
-                //             <SearchIcon fontSize='large' />
-                //         </InputAdornment>
-                //     ),
-                // }}
-            />
-        </>
+        <form className={clsx(styles.form)}>
+            <div className={styles.inputContainer}>
+                <Autocomplete
+                    inputValue={inputValue}
+                    onInputChange={(_, newInputValue) => {
+                        setInputValue(newInputValue);
+                    }}
+                    id='controllable-states-demo'
+                    options={Object.keys(AssessmentServiceTypes).map(
+                        key =>
+                            AssessmentServiceTypes[
+                                key as keyof typeof AssessmentServiceTypes
+                            ],
+                    )}
+                    renderInput={params => (
+                        <TextField {...params} label='Тип тренировки' />
+                    )}
+                    className={clsx()}
+                />
+                <TextField
+                    id='demo-helper-text-aligned-no-helper'
+                    label='Игрок'
+                    maxRows={1}
+                    onChange={handleChangePlayer}
+                    value={inputPlayer}
+                    className={clsx(styles.form__textField)}
+                />
+            </div>
+            <div></div>
+
+            <CustomButtonSubmit callback={callBack}>
+                добавить счет
+            </CustomButtonSubmit>
+        </form>
     );
 }

@@ -73,9 +73,9 @@ span {
 
     --font-header: 'Unbounded', sans-serif;
 
-    --margin-outsideBlock: 15px;
+    --margin-outsideBlock: 16px;
     --mg-10: 10px;
-    --mg-15: 15px;
+    --mg-15: 16px;
     --mg-28: 28px;
     --color-default: rgba(255, 255, 255, 1);
     --color-white-95: rgba(255, 255, 255, 0.95);
@@ -86,6 +86,7 @@ span {
     --color-limon: #ccff00;
     --color-yellow: #ffa000;
 
+    --bordre-radius-small: 8px;
     --bordre-radius-medium: 12px;
 
     background-color: var(--color-green);

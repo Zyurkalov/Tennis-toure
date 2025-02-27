@@ -1,0 +1,17 @@
+.button {
+    min-width: 100%;
+    min-height: 64px;
+    background-color: var(--color-limon);
+    border: none;
+    border-radius: var(--bordre-radius-small);
+
+    font-family: var(--font-header);
+    font-weight: 600;
+    font-size: 1.3rem;
+    box-shadow: 0px 5px 5px rgba(#000000, 0.2);
+
+    &:active {
+        box-shadow: 0 3px rgba(#000000, 0.3);
+        transform: translateY(2px);
+    }
+}
