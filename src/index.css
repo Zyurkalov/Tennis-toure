@@ -80,12 +80,16 @@ span {
     --color-default: rgba(255, 255, 255, 1);
     --color-white-95: rgba(255, 255, 255, 0.95);
     --color-white-90: rgba(255, 255, 255, 0.9);
+    --color-black-20: rgba(0, 0, 0, 0.2);
+    --color-black-40: rgba(0, 0, 0, 0.4);
+    --color-black-60: rgba(0, 0, 0, 0.6);
     --color-text-green: #1b5e20;
     --color-green: #3d5138;
     --color-grey-main: rgba(174, 180, 173, 1);
     --color-limon: #ccff00;
     --color-yellow: #ffa000;
 
+    --bordre-radius-smallest: 6px;
     --bordre-radius-small: 8px;
     --bordre-radius-medium: 12px;
 

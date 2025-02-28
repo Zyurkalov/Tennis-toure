@@ -1,0 +1,60 @@
+.horizontalList {
+    max-width: 100%;
+    margin: var(--mg-15) var(--mg-15);
+    padding: 6px 0 var(--mg-10) 0;
+    position: relative;
+
+    border-top: 1px solid var(--color-black-20);
+    border-right: 1px solid var(--color-black-20);
+    border-bottom: 1px solid var(--color-black-20);
+    border-left: none;
+
+    border-top-right-radius: var(--bordre-radius-smallest);
+    border-bottom-right-radius: var(--bordre-radius-smallest);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &__headerSet {
+        padding-right: 5px;
+        position: absolute;
+        background-color: var(--color-grey-main);
+        top: calc(2px - var(--mg-15));
+        color: var(--color-black-60);
+    }
+    &__headerCount {
+        padding-right: 5px;
+        position: absolute;
+        background-color: var(--color-grey-main);
+        bottom: calc(5px - var(--mg-15));
+        color: var(--color-black-60);
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        min-width: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 0 10px;
+    }
+
+    &__list {
+        max-width: 14px;
+        max-height: 55px;
+        line-height: normal;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    &__set {
+        font-size: 16px;
+        opacity: 50%;
+    }
+
+    &__score {
+        font-size: 22px;
+        font-weight: 600;
+    }
+}

@@ -1,5 +1,6 @@
 .button {
-    min-width: 100%;
+    margin: 0 var(--mg-15);
+    min-width: calc(100% - calc(var(--mg-15) * 2));
     min-height: 64px;
     background-color: var(--color-limon);
     border: none;

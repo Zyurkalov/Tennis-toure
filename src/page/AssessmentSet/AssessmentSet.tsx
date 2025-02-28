@@ -6,8 +6,9 @@ import clsx from 'clsx';
 import { TextField } from '@mui/material';
 import useScreenStyle from '../../utilits/hooks/useScreenStyle';
 import styles from './assessmentSet.module.scss';
-import { ClassNames } from '@emotion/react';
 import CustomButtonSubmit from '../../UI-kit/CustomButtonSubmit/CustomButtonSubmit';
+import { DownloadDone } from '@mui/icons-material';
+import Scoreboard from '../../UI-kit/Scoreboard/Scoreboard';
 
 export default function AssessmentSet() {
     const [inputPlayer, setInputPlayer] = useState('');
@@ -17,9 +18,9 @@ export default function AssessmentSet() {
         setInputPlayer(event.target.value);
     };
 
-    useEffect(() => {
-        console.log(inputValue);
-    }, [inputValue]);
+    // useEffect(() => {
+    //     console.log(inputValue);
+    // }, [inputValue]);
 
     function callBack() {
         return;
@@ -55,7 +56,9 @@ export default function AssessmentSet() {
                 />
             </div>
             <div></div>
-
+            <Scoreboard />
+            {/* <ScoreControls /> */}
+            {/* <ScoreSummary /> */}
             <CustomButtonSubmit callback={callBack}>
                 добавить счет
             </CustomButtonSubmit>
