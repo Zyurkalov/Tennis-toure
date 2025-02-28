@@ -1,4 +1,4 @@
-import styles from './CustomButtonSubmit.module.scss';
+import styles from './CustomButton.module.scss';
 import { SyntheticEvent, ReactNode, ButtonHTMLAttributes } from 'react';
 
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -6,7 +6,7 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
 }
 
-export default function CustomButtonSubmit({
+export default function CustomButton({
     children,
     callback,
     ...props
