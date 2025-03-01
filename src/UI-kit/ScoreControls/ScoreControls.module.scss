@@ -1,0 +1,14 @@
+.scoreControls {
+    margin: var(--mg-15) var(--mg-15) var(--mg-15) calc(var(--mg-15) - 2px);
+    list-style: none;
+    max-width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+
+    &__list {
+        min-width: calc(100% / 3 - 8px);
+    }
+}

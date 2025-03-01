@@ -1,0 +1,37 @@
+.scoreSummaty {
+    width: calc(100% - var(--mg-15) * 2);
+    margin: var(--mg-15);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--font-header);
+    font-weight: 600;
+    font-size: 1.3rem;
+
+    & > li {
+        min-width: calc((100% - var(--mg-15) * 2) / 4);
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        &_center {
+            text-align-last: center;
+        }
+    }
+    &__count {
+        display: inline-block;
+        text-align: center;
+        font-size: 2rem;
+    }
+    &__line {
+        margin: 0;
+        width: 1px; /* Толщина линии */
+        height: 45px;
+        border: none; /* Убираем стандартный border */
+        background-color: black; /* Цвет линии */
+    }
+}

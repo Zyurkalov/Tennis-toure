@@ -9,6 +9,8 @@ import styles from './assessmentSet.module.scss';
 import CustomButtonSubmit from '../../UI-kit/CustomButtonSubmit/CustomButtonSubmit';
 import Scoreboard from '../../UI-kit/Scoreboard/Scoreboard';
 import CustomButton from '../../UI-kit/CustomButton/CustomButton';
+import ScoreControls from '../../UI-kit/ScoreControls/ScoreControls';
+import ScoreSummary from '../../UI-kit/ScoreSummary/ScoreSummary';
 
 export default function AssessmentSet() {
     const [inputPlayer, setInputPlayer] = useState('');
@@ -57,9 +59,9 @@ export default function AssessmentSet() {
             </div>
             <div></div>
             <Scoreboard />
-            {/* <ScoreControls /> */}
-            {/* <ScoreSummary /> */}
-            <CustomButton callback={callBack}>1</CustomButton>
+            <ScoreControls callback={callBack} />
+            <ScoreSummary callback={callBack} />
+            {/* <CustomButton callback={callBack}>1</CustomButton> */}
             <CustomButtonSubmit callback={callBack}>
                 добавить счет
             </CustomButtonSubmit>

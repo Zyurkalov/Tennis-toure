@@ -1,5 +1,6 @@
 .horizontalList {
     max-width: 100%;
+    height: 55px;
     margin: var(--mg-15) var(--mg-15);
     padding: 6px 0 var(--mg-10) 0;
     position: relative;
@@ -31,21 +32,24 @@
 
     &__container {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         min-width: 100%;
+        height: 100%;
         list-style-type: none;
         padding: 0;
-        margin: 0 0 0 10px;
+        margin: 0 0 0 5px;
     }
 
     &__list {
+        margin-right: 20px;
         max-width: 14px;
-        max-height: 55px;
+        // max-height: 55px;
         line-height: normal;
+
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-right: 20px;
+        justify-content: space-between;
     }
 
     &__set {
