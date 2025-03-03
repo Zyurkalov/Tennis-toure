@@ -73,6 +73,7 @@ span {
 
     --font-header: 'Unbounded', sans-serif;
 
+    --margin-outsideBlock-small: 10px;
     --margin-outsideBlock: 16px;
     --mg-10: 10px;
     --mg-15: 16px;
@@ -80,10 +81,14 @@ span {
     --color-default: rgba(255, 255, 255, 1);
     --color-white-95: rgba(255, 255, 255, 0.95);
     --color-white-90: rgba(255, 255, 255, 0.9);
+    --color-white-80: rgba(255, 255, 255, 0.8);
+    --color-white-60: rgba(255, 255, 255, 0.6);
     --color-black-20: rgba(0, 0, 0, 0.2);
     --color-black-40: rgba(0, 0, 0, 0.4);
     --color-black-60: rgba(0, 0, 0, 0.6);
+
     --color-text-green: #1b5e20;
+    --color-text-green-dark: #313533;
     --color-green: #3d5138;
     --color-grey-main: rgba(174, 180, 173, 1);
     --color-limon: #ccff00;
@@ -93,5 +98,13 @@ span {
     --bordre-radius-small: 8px;
     --bordre-radius-medium: 12px;
 
-    background-color: var(--color-green);
+    --color-gradient-start: #1b5e20; /* Начальный цвет градиента */
+    --color-gradient-end: #162417; /* Конечный цвет градиента */
+    --gradient-angle: 180deg; /* Угол градиента */
+
+    background: linear-gradient(
+        var(--gradient-angle),
+        var(--color-green),
+        var(--color-gradient-end)
+    );
 }

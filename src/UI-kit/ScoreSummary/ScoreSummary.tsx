@@ -18,7 +18,7 @@ export default function ScoreSummary({ callback }) {
             </li>
             <hr className={`${styles.scoreSummaty__line}`} />
             <li className={`${styles.scoreSummaty__container_center}`}>
-                <span className={`${styles.scoreSummaty__count}`}>0</span>
+                <span className={`${styles.scoreSummaty__count}`}>10</span>
             </li>
             <li>
                 <CustomButton

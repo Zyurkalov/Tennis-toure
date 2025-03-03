@@ -1,8 +1,9 @@
 .button {
     height: 80px;
     width: 100%;
-    background-color: var(--color-grey-main);
-    border: 2px solid var(--color-grey-main);
+    // background-color: var(--color-white-80);
+    background-color: #c6c6c6;
+    border: 2px solid var(--color-default);
     border-radius: var(--bordre-radius-small);
 
     font-family: var(--font-header);
@@ -13,7 +14,8 @@
         inset 4px 4px 10px rgba(0, 0, 0, 0.25),
         inset -2px -2px 4px rgba(255, 255, 255, 0.8);
 
-    color: white;
+    // color: var(--color-text-green-dark);
+    color: var(--color-default);
     font-size: 30px;
 
     &:active {

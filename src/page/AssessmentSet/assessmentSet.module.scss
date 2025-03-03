@@ -1,8 +1,22 @@
-.inputContainer > div {
-    margin: var(--mg-15) var(--mg-15) 0;
+.inputContainer {
+    padding: var(--margin-outsideBlock-small) 0;
+
+    background-color: var(--color-white-90);
+    border-radius: var(--bordre-radius-small);
+
+    & > div {
+        margin: var(--mg-10) var(--mg-15);
+    }
 }
 
 .form {
+    height: 100%;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     &__textField {
         min-width: calc(100% - calc(var(--mg-15) * 2));
     }
